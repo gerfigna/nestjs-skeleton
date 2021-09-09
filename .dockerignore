@@ -33,11 +33,4 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-docker-compose.yml
-.env
-jwt/*
-test.pdf
-schema.graphql
-/i18n/*
-!/i18n/.gitkeep
-files
+jwt

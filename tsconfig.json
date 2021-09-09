@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "esModuleInterop": true,
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -11,6 +12,13 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "skipLibCheck": true
-  }
+    "paths": {
+      "@ui/*": ["src/ui/*"],
+      "@application/*": ["src/application/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
+      "@domain/*": ["src/domain/*"]
+    },
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "files"]
 }

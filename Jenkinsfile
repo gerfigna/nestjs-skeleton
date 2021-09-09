@@ -1,0 +1,2 @@
+library 'randock.common'
+vueBuild {}

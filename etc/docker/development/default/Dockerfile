@@ -2,7 +2,7 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-RUN yarn global add @nestjs/cli @mikro-orm/cli @mikro-orm/mysql
+RUN npm install -g @nestjs/cli @mikro-orm/cli @mikro-orm/mysql
 
 COPY package.json yarn.lock ./
 

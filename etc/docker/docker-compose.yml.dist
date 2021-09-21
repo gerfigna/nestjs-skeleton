@@ -9,7 +9,7 @@ services:
     volumes:
       - nestjs_template_db:/var/lib/mysql
     ports:
-    - "2338:3306"
+    - "2336:3306"
 
   api:
     command: npm run start:debug
@@ -22,8 +22,8 @@ services:
     env_file:
       - .env
     ports:
-      - "9299:9229"
-      - "3019:3000"
+      - "9399:9229"
+      - "3031:3000"
 
 volumes:
   nestjs_template_db:

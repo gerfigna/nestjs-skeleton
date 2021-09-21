@@ -9,33 +9,33 @@ export abstract class CustomAggregateRoot extends AggregateRoot {
     this.init();
   }
 
-  private init() {
+  private init(): void {
     if (undefined == this[INTERNAL_EVENTS]) {
       this[INTERNAL_EVENTS] = [];
       this[IS_AUTO_COMMIT_ENABLED] = false;
     }
   }
 
-  commit() {
+  commit(): void {
     this.init();
     this[INTERNAL_EVENTS].forEach(event => this.publish(event));
     this[INTERNAL_EVENTS].length = 0;
   }
 
-  uncommit() {
+  uncommit(): void {
     this.init();
     this[INTERNAL_EVENTS].length = 0;
   }
-  getUncommittedEvents() {
+  getUncommittedEvents(): Array<IEvent> {
     this.init();
     return this[INTERNAL_EVENTS];
   }
 
-  loadFromHistory(history) {
+  loadFromHistory(history): void {
     history.forEach(event => this.apply(event, true));
   }
 
-  apply(event: IEvent, isFromHistory?: boolean) {
+  apply(event: IEvent, isFromHistory?: boolean): void {
     this.init();
 
     if (!isFromHistory && !this.autoCommit) {

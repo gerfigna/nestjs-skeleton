@@ -12,6 +12,7 @@ import { join } from 'path';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { User } from '@domain/greeting/entity/user.entity';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { User } from '@domain/greeting/entity/user.entity';
       isGlobal: true,
       ignoreEnvFile: 'production' === process.env.NODE_ENV,
     }),
+    HttpModule,
     MikroOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
